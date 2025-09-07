@@ -1,0 +1,27 @@
+import tito.*
+import bebidas.*
+
+describe "bebidas Tito" {
+    
+ test "velocidad de tito después de consumir whisky" {
+  tito.consumir(1, whisky)
+  assert.equals(6.3, tito.velocidad())
+}
+
+test "velocidad de tito después de consumir tereré" {
+  tito.consumir(20, terere)
+  assert.equals(14, tito.velocidad()) 
+}
+
+test "velocidad de tito después de consumir cianuro" {
+  tito.consumir(5, cianuro)
+  assert.equals(0, tito.velocidad())
+}
+
+test "la última bebida consumida reemplaza a la anterior" {
+  tito.consumir(2, whisky)
+  assert.notEquals(0, tito.velocidad()) 
+  tito.consumir(1, cianuro)
+  assert.equals(0, tito.velocidad())
+}
+}
